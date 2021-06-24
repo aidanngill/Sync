@@ -1,0 +1,53 @@
+extends base.pug
+
+block content
+  h2 Settings
+  p It is required that you enter at least your full name and student ID. Everything else is optional.
+
+  form(action="/user/settings" method="POST")
+
+    ul.error-list
+      each val, key in errors
+        li #{val}
+
+    input(type="hidden" name="csrf" value=`${token}`)
+
+    label(for="fullName") Full Name
+      input(
+        type="text"
+        name="name"
+        id="fullName"
+        placeholder="Your full name..."
+        value=`${student.name || ''}`
+        required
+      )
+
+    label(for="studentId") Student ID
+      input(
+        type="text"
+        name="student"
+        id="studentId"
+        placeholder="Your student ID number..."
+        value=`${student.student || ''}`
+        required
+      )
+
+    label(for="phoneNumber") Phone Number
+      input(
+        type="text"
+        name="phone"
+        id="phoneNumber"
+        placeholder="Your phone number..."
+        value=`${student.phone || ''}`
+      )
+
+    label(for="emailAddress") Email
+      input(
+        type="email"
+        name="email"
+        id="emailAddress"
+        placeholder="Your email address..."
+        value=`${student.email || ''}`
+      )
+
+    input(type="submit" value="Save")

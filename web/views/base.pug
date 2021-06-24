@@ -1,0 +1,28 @@
+doctype html
+
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    link(rel="stylesheet", href="/css/style.css")
+
+    title Sync
+  body
+    h1 Sync
+
+    div#navbar
+      ul
+        li
+          a(href="/user/home") Home
+
+        //- Future implementation.
+          li
+            a(href="/user/groups") Groups
+          li
+            a(href="/user/projects") Projects
+
+        li
+          a(href="/user/settings") Settings
+        li
+          a(href="/auth/logout") Logout
+
+    block content
